@@ -1,0 +1,7 @@
+{
+  "name": "matrimonial-app-ionic-angularjs",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,45 @@
+<ion-content>
+  <ion-icon name="arrow-back-outline" class="back" size="large"  [routerLink]="['/settings']"></ion-icon>
+  <ion-label class="l1">Hide profile</ion-label>
+
+<div class="container">
+  <form action="post">
+    <ion-grid>
+    <br><p>You can temporarily hide your profile if you do not want to delete it. On hide your profile will be
+      hideden from our members and you will not be able to contact any member until you activate.</p>
+      <br>
+      <p> Your profile status is current active/unhide. If you would like to change your status. Please <strong>Hide Now</strong>  </p>
+      <br>
+      
+      <b><p class="f1">Select the number of days/months you would like to keep your profile hide</p></b>
+      <ion-row>
+        <ion-select interface="popover" placeholder="2 weeks" >
+       
+          <ion-select-option value="7-days">7 days</ion-select-option>
+          <ion-select-option value="week">1 week</ion-select-option>
+          <ion-select-option value="2-week">2 weeks</ion-select-option>
+          <ion-select-option value="3-week">3 weeks</ion-select-option>
+          <ion-select-option value="month">1 month</ion-select-option>
+          <ion-select-option value="2-months">2 months</ion-select-option>
+          <ion-select-option value="3-months">3 months</ion-select-option>
+      
+          <ion-select-option value="6-months">6 months</ion-select-option>
+         
+          <ion-select-option value="9-months">9 months</ion-select-option>
+
+          <ion-select-option value="1-year">1 year </ion-select-option>
+        
+        </ion-select> 
+      </ion-row>
+      <p class="note">NOTE:Your profile will be activated/unhide after the select time period elapses. E.G. If you select 15 days as
+        the time period, your profile will be hide for 15 days and will be automatically activated/unhide on the 16th day. </p>
+
+        
+          <ion-row>
+            <ion-button color="primary" type="button" shape="round" class="button"> Hide Now</ion-button>
+          </ion-row>
+        </ion-grid>
+      </form>
+</div>
+
+</ion-content>

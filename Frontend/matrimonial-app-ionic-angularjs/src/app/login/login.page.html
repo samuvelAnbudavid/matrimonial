@@ -1,0 +1,35 @@
+
+<ion-content [fullscreen]="true">
+
+  <ion-icon class="image"></ion-icon>
+
+  <ion-label class="l1">Login</ion-label>
+
+  <div class="div1">
+    <form class="myform" (ngSubmit)="login()">
+      <ion-item>
+        <ion-label position="stacked">Mobile Number</ion-label>
+        <ion-intl-tel-input id="mobile-number" name="mobile-number" [(ngModel)]="mobileNumber"
+          #mobileNumberControl="ngModel" ionIntlTelInputValid></ion-intl-tel-input>
+      </ion-item>
+
+      <div *ngIf="mobileNumberControl.invalid && mobileNumberControl.touched">
+        <ion-text color="damage" *ngIf="mobileNumberControl.errors.required">
+          <p class="ion-no-margin"><sub>Mobile number is required.</sub></p>
+        </ion-text>
+        <ion-text color="danger" *ngIf="mobileNumberControl.errors.phone">
+          <p class="ion-no-margin"><sub>Mobile is not valid.</sub></p>
+        </ion-text>
+      </div>
+
+
+      <ion-button expand="full" shape="round" class="btn1" (click)="login()"
+        [disabled]="mobileNumberControl.invalid && mobileNumberControl.touched">Send OTP</ion-button>
+
+      <ion-button expand="full" shape="round" class="btn1" [routerLink]="['/email-login']">Login using Email</ion-button>
+
+      
+    </form>
+  </div>
+
+</ion-content>

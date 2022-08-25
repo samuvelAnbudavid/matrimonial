@@ -1,0 +1,88 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="arrow-back-outline" size="large" [routerLink]="['/user-home']"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-label class="l1">interest</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <div class="c1">
+
+    <ion-grid>
+      <ion-row>
+        <div class="d1">
+          <ion-button shape="round" name="b1" size="default" (click)="received()" id="r">Received</ion-button>
+          <ion-button shape="round" name="b2" size="default" (click)="sent()" id="s">Sent</ion-button>
+        </div>    
+      </ion-row>
+    </ion-grid>
+    
+
+
+    <ion-segment *ngIf="receivedPage" (ionChange)="segmentChanged($event)" [(ngModel)]="segmentModal1"
+      style="padding-top: 30px;">
+      <ion-segment-button value="pending">
+        <ion-label>Pending ({{12}})</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="accepted">
+        <ion-label>Accepted</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="declined">
+        <ion-label>Declined</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+
+    <div class="d2" *ngIf="receivedPage && segmentModal1 === 'pending'">
+      <ion-list *ngFor="let user of users">
+        <ion-item button [routerLink]="['/private-chat']" [state]="{ user: user, path: '/request' }">
+          <ion-img [src]="user.photo"></ion-img>
+          <ion-label class="l2">{{ user.username }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="d2" *ngIf="receivedPage && segmentModal1 === 'accepted'">
+      <ion-list *ngFor="let user of users">
+        <ion-item button [routerLink]="['/private-chat']" [state]="{ user: user, path: '/request' }">
+          <ion-img [src]="user.photo"></ion-img>
+          <ion-label class="l2">{{ user.username }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="d2" *ngIf="receivedPage && segmentModal1 === 'declined'">
+      <ion-list *ngFor="let user of users">
+        <ion-item button [routerLink]="['/private-chat']" [state]="{ user: user, path: '/request' }">
+          <ion-img [src]="user.photo"></ion-img>
+          <ion-label class="l2">{{ user.username }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+
+    <ion-segment *ngIf="!receivedPage" (ionChange)="segmentChanged($event)" [(ngModel)]="segmentModal2"
+      style="padding-top: 30px;">
+      <ion-segment-button value="pending">
+        <ion-label>Pending</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="accepted">
+        <ion-label>Accepted</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="declined">
+        <ion-label>Declined</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+  </div>
+</ion-content>
+
+
+<ion-footer class="footer1">
+  <app-tabs></app-tabs>
+</ion-footer>

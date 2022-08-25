@@ -1,0 +1,180 @@
+*{
+    font-family: "Product Sans";
+}
+.mylist {
+    margin-left: 25px;
+}
+
+ion-icon[name="edit_profile"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/edit_profile.png);
+}
+
+ion-icon[name="edit_preference"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/edit_preference.png);
+}
+ion-icon[name="verify_profile"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/verify_your_profile.png);
+}
+ion-icon[name="shortlisted"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons//shortlisted.png);
+}
+ion-icon[name="daily_recommendation"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/daily_recommendation.png);
+}
+ion-icon[name="your_chat"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/your_chat.png);
+}
+ion-icon[name="your_call"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets//sidebar-icons/your_call.png);
+}
+ion-icon[name="my_matches"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/my_matches.png);
+}
+ion-icon[name="profile_visitor"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/profile_visitor.png);
+}
+ion-icon[name="success_stories"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/success_stories.png);
+}
+ion-icon[name="search1"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/search.png);
+}
+
+ion-icon[name="qr"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/qr.png);
+}
+ion-icon[name="setting"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/setting.png);
+}
+
+ion-icon[name="qr"] {
+    // position: absolute;
+    width: 42px;
+    height: 42px;
+    // left: 30px;
+    // top: 269px;
+
+    background: url(../../../assets/sidebar-icons/qr.png);
+}
+
+
+.avat {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    left: 95px;
+    padding: 10px;
+}
+
+.l1 {
+    
+
+    
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #fbf9f9;
+}
+
+.l2 {
+    
+    
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+
+    color: #fbf9f9;
+}
+
+.l3 {
+    
+   
+    font-size: 25px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #24f424;
+}
+
+:host(.ion-color) .toolbar-background {
+    background: #4C0890;
+}

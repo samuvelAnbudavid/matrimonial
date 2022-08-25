@@ -1,0 +1,286 @@
+<ion-content [fullscreen]="true">
+  <!-- <div class="cont"> -->
+
+  <div class="c1" >
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10">
+          <ion-icon name="arrow-back-outline" size="large" [routerLink]="['/user-home']"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="camera"></ion-icon>&nbsp;
+          <ion-icon class="eye"></ion-icon>
+        </ion-col>
+        <!-- <ion-col>
+          <ion-icon class="eye"></ion-icon>
+        </ion-col> -->
+      </ion-row>
+      <ion-row>
+        <ion-avatar class="icon1">
+          <img src="../../assets/user_home/avatar.svg">
+        </ion-avatar>
+      </ion-row>
+      <ion-row>
+        <ion-label class="label1">Hi {{ username }}</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label class="label2">ID : {{ userId }}</ion-label>
+      </ion-row>
+      <!-- <ion-row ng-controller="let com of lstcomments">  
+          {{com.userDetails.fullname}}
+  
+      </ion-row> -->
+      <ion-row>
+        <ion-icon class="verify"></ion-icon>&nbsp;
+        <ion-label class="label3">Verified</ion-label>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="c2">
+    <div>
+      <!-- <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button name="btn2" color="#4c0890" shape="round">About me</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button name="btn3" color="#934cda" shape="round">Looking For</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+
+      <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="segmentModel">
+        <ion-segment-button value="about">
+          <ion-label>About me</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="looking">
+          <ion-label>Looking For</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+    </div>
+
+    <div *ngIf="segmentModel === 'about'">
+      <ion-card>
+        <ion-item>
+          <ion-icon name="person-sharp"></ion-icon> &nbsp;&nbsp;
+          <ion-label class="l1" [routerLink]="['/profile-creation']">{{username}} </ion-label>
+          <ion-icon name="pencil-outline" size="large"></ion-icon>
+          
+          <!-- <ion-icon class="edit1"></ion-icon> -->
+        </ion-item>
+  
+    
+
+        <ion-card-content>
+          <ion-label class="l27">Religion</ion-label>
+          <br>
+          <ion-label class="l7">Height</ion-label>: {{Height}}
+          <br>
+          <ion-label class="l28">Caste</ion-label>: {{UserCaste}}
+          <br>
+          <ion-label class="l29">Mother Tongue:</ion-label> {{ motherTongue}}
+          <br>
+          <ion-label class="l9">Country</ion-label>: {{Country}}
+        </ion-card-content>
+      </ion-card>
+  
+  
+      <ion-card>
+        <ion-item>
+          <ion-icon name="alert-circle-sharp"></ion-icon> &nbsp;&nbsp;
+          <ion-label class="l2">Critical Fields</ion-label>
+          <ion-icon name="pencil-outline" size="large"></ion-icon>
+          <!-- <ion-icon class="edit2"></ion-icon> -->
+        </ion-item>
+  
+        <ion-card-content>
+          (This field cannot be changed and can be only filled one time.)<br>
+          <ion-label class="l25">Date of Birth</ion-label>: {{dateOfBirth}}
+          <br>
+          <ion-label class="l26">Maritial Status</ion-label>: {{martialStatus}}
+
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-card>
+        <ion-item>
+          <ion-icon name="happy"></ion-icon>&nbsp;&nbsp;
+          <ion-label class="l3">About me</ion-label> 
+          <ion-icon name="pencil-outline" size="large"></ion-icon>
+        </ion-item>
+  
+        <ion-card-content>
+          This is content, without any paragraph or header tags,
+          within an ion-card-content element.
+
+          
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-card>
+        <ion-item>
+          <ion-icon name="school-sharp"></ion-icon> &nbsp;&nbsp;
+          <ion-label class="l4" [routerLink]="['/education-career']">Education & Career</ion-label>
+          <ion-icon name="pencil-outline" size="large"></ion-icon>
+        </ion-item>
+  
+        <ion-card-content>
+          <ion-label class="l11">Education</ion-label>: {{ Educations }}
+          <br>
+          <ion-label class="l12">Occupation</ion-label>: {{Occupation}}
+          <br>
+          <ion-label class="l13">Income</ion-label>: {{Income}}
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-card>
+        <ion-item>
+          <ion-icon name="restaurant-sharp"></ion-icon> &nbsp;&nbsp;
+          <ion-label class="l5" [routerLink]="['/lifestyle']">LifeStyle</ion-label>
+          <ion-icon name="pencil-outline" size="large"></ion-icon>
+        </ion-item>
+  
+        <ion-card-content>
+          <ion-label class="l21">Diet</ion-label>: {{Diet}}
+          <br>
+          <ion-label class="l22">Smoke</ion-label>: {{Smoke}}
+          <br>
+          <ion-label class="l23">Drink</ion-label>: {{Drink}}
+          <br>
+          <ion-label class="l24">Challenged</ion-label>
+
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-card>
+        <ion-item>
+          <ion-icon name="people-sharp"></ion-icon> &nbsp;&nbsp;
+          <ion-label class="l6" [routerLink]="['/family-details']">Family</ion-label>
+          <ion-icon name="pencil-outline" size="large"></ion-icon>
+        </ion-item>
+  
+        <ion-card-content>
+          <ion-label class="l30">Family Status:</ion-label> <ion-label >{{familyStatus}}</ion-label>
+          <br>
+          <ion-label class="l31">Father's Occupation:</ion-label> {{fatherOccupation}}
+          <br>
+          <ion-label class="l32">Mother's Occupation:</ion-label>{{ motherOccupation }}
+          <br>
+          <ion-label class="l33">No. of Brother/Sister: </ion-label>{{noOfBrothers}} Brothers & {{noOfSisters}} Sisters
+          <br>
+          <ion-label class="l34">Of Which Married</ion-label>
+          <br>
+          <ion-label class="l35">Family Values:</ion-label> {{ familyValues}}
+          <br>
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-card>
+        <ion-item>
+          <ion-icon name="call-sharp"></ion-icon> &nbsp;&nbsp;
+          <ion-label class="l6" [routerLink]="['/contact']">Contacts</ion-label>
+          <ion-icon name="pencil-outline" size="large"></ion-icon>
+        </ion-item>
+  
+        <ion-card-content>
+          <ion-label class="l36">Email-Id:</ion-label>{{email}}
+          <br>
+          <ion-label class="l37">Mobile Number:</ion-label>{{phoneNumber}}
+          <br>
+          <ion-label class="l38">Person1:</ion-label> {{personOneRelationship}} {{ personOnePhoneNumber}}
+          <br>
+          <ion-label class="l39">Person2:</ion-label>{{personTwoRelationship}} {{personTwoPhoneNumber}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div *ngIf="segmentModel === 'looking'" style="height: 100%;">
+      <!-- <ion-card> -->
+        <ion-item >
+          <ion-icon name="heart-sharp"></ion-icon>&nbsp;&nbsp;&nbsp;
+          <ion-label class="l6"  [routerLink]="['/pref-partner']"><h2> Desired Partner </h2></ion-label>
+          <ion-icon name="pencil-outline" size="large"></ion-icon>
+          
+        </ion-item>
+        <!-- <ion-card-content> -->
+          
+          <ion-card>
+            <ion-item>
+              <ion-icon name="person-sharp"></ion-icon>&nbsp;&nbsp;
+              <ion-label class="l15">Basic Details</ion-label>
+              <!-- <ion-icon name="pencil-outline" size="large"></ion-icon> -->
+            </ion-item>  
+          
+            <ion-card-content>
+              <ion-label class="l7">Height:</ion-label>{{minHeight}} - {{maxHeight}}
+              <br>
+              <ion-label class="l8">Age:</ion-label> {{minAge}} - {{maxAge}}
+              <br>
+              <ion-label class="l9">Country:</ion-label> {{country}}
+              <br>
+              <ion-label class="l10">Maritial Status:</ion-label> {{martitialStatus}}
+
+        </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-item>
+            <ion-icon name="school-sharp"></ion-icon>&nbsp;&nbsp;
+            <ion-label class="l14">Education & Occupation</ion-label>
+            <!-- <ion-icon name="pencil-outline" size="large"></ion-icon> -->
+          </ion-item>  
+        
+          <ion-card-content>
+            <ion-label class="l11">Education</ion-label>
+            <br>
+            <ion-label class="l12">Occupation:</ion-label>{{partnerOccupation}}
+            <br>
+            <ion-label class="l13">Income:</ion-label>INR {{partnerExpectedSalaryInINR}} and USD {{partnerExpectedSalaryInDollar}}
+          </ion-card-content>
+        </ion-card>
+        
+        <ion-card>
+          <ion-item>
+            <ion-icon name="sparkles-sharp"></ion-icon>&nbsp;&nbsp;
+            <ion-label class="l16">Religion</ion-label>
+            <!-- <ion-icon name="pencil-outline" size="large"></ion-icon> -->
+          </ion-item>  
+          <ion-card-content>
+            <ion-label class="l17">Religion</ion-label>
+            <br>
+            <ion-label class="l18">Caste:</ion-label> {{partnerCast}}
+            <br>
+            <ion-label class="l19">Mother Tongue:</ion-label> {{ partnerLanguage}}
+          </ion-card-content>
+        </ion-card>
+        
+        <ion-card>
+          <ion-item>
+            <ion-icon name="restaurant-sharp"></ion-icon>&nbsp;&nbsp;
+            <ion-label class="l20">LifeStyle</ion-label>
+            <!-- <ion-icon name="pencil-outline" size="large"></ion-icon> -->
+          </ion-item>  
+          <ion-card-content>
+            <ion-label class="l21">Diet</ion-label>
+            <br>
+            <ion-label class="l22">Smoke</ion-label>
+            <br>
+            <ion-label class="l23">Drink</ion-label>
+            <br>
+            <ion-label class="l24">Challenged</ion-label>
+          </ion-card-content>
+        </ion-card>
+
+       
+        
+      <!-- </ion-card-content> -->
+      <!-- </ion-card> -->
+    </div>
+
+  
+    
+  </div>
+  <!-- </div> -->
+</ion-content>

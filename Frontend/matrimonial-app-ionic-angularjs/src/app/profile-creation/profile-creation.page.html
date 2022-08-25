@@ -1,0 +1,158 @@
+<ion-content [fullscreen]="true">
+  <ion-title>
+    <ion-icon name="arrow-back-outline" size="large" [routerLink]="['/edit-profile']"></ion-icon>Profile Creation</ion-title>
+   
+      
+   
+          <div class="container"  >
+
+    <form #profileCreatiomForm="ngForm" (ngSubmit)="submit()" >
+     <ion-grid>
+      <ion-row>
+        <ion-label class="name">Name</ion-label>
+      </ion-row>
+     <ion-row>
+      <ion-input id="Name1" type="name" class="n1" placeholder = "Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"> </ion-input>
+     </ion-row>
+
+     <ion-row>
+      <ion-label class="Height">Height</ion-label> 
+     </ion-row>
+      <ion-row>
+        <ion-input id="Name1" type="name" class="height" placeholder = "Height"> </ion-input>
+      </ion-row>
+
+      <ion-row>
+        <ion-label class="Age">Age</ion-label>
+      </ion-row>
+    <ion-row>
+      <ion-input id="Name1" type="name" class="age" placeholder = "Age"> </ion-input>
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="MS">Maritial Status</ion-label> 
+    </ion-row>
+      <!--------------------------------------------------------------- Select Maritial status ----------------------------------------------------------------------------->
+    <ion-row>
+      <ion-select interface="popover"  class="Maritial"
+      id="mariatlStatus" (ionChange)="changeStatus($event)"  placeholder="-Select-" [(ngModel)]="mStatus" [ngModelOptions]="{standalone: true}" >
+        <ion-select-option value="single">Never Married</ion-select-option>
+        <ion-select-option value="Divorced">Divorced</ion-select-option>
+        <ion-select-option value="Seperated">Seperated</ion-select-option>
+        <ion-select-option value="Widowed">Widowed</ion-select-option>
+      </ion-select>
+    </ion-row>
+
+
+                                <div [hidden]=isHidden>
+                                  <ion-row>
+                                    <ion-label>Any Children (If any) Mention</ion-label> 
+
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-select interface="popover"  class="Maritial"Value="0">
+                                              <ion-select-option value="0">0</ion-select-option>
+                                              <ion-select-option value="1">1</ion-select-option>
+                                              <ion-select-option value="2">2</ion-select-option>
+                                              <ion-select-option value="3">3</ion-select-option>
+                                            </ion-select>
+
+                                  </ion-row>
+                                  <ion-row>
+                                    <ion-checkbox color="danger" checked></ion-checkbox>
+                                    <ion-label>Living together</ion-label>
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-label class="date">Date of 1st Married</ion-label>
+                                  </ion-row>
+
+                                  <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MMM/YYYY" min="1930-01-01" max="2002-12-31">
+                                  </ion-datetime>
+
+                                  <ion-row>
+                                    <ion-label class="date">Date of Divorced</ion-label>
+                                  </ion-row>
+
+                                  <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MMM/YYYY" min="1930-01-01" max="2002-12-31">
+                                  </ion-datetime>
+
+
+                                  <ion-row>
+                                    <ion-label>Reason of Divorce</ion-label>
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-input id="Name1" type="name" class="caste" placeholder="Reason"> </ion-input>
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-label>Reason of Death (If Death) </ion-label> <p></p>
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-input id="Name1" type="name" class="caste" placeholder="If Partner is Death"> </ion-input>
+                                  </ion-row>
+                                    <ion-item>
+
+                                    </ion-item>
+                                </div>
+                                
+      <!------------------------------------------------------------------- End ---------------------------------------------------------------------------------->
+    <ion-row>
+      <ion-label class="Caste">Caste</ion-label>
+    </ion-row>
+       
+    <ion-row>
+      <ion-input id="Name1" type="name" class="caste" placeholder = "Caste"> </ion-input>
+    </ion-row>
+
+  <ion-row>
+    <ion-label class="Mother">Mother Tongue</ion-label> 
+  </ion-row>
+      
+  <ion-row>
+    <ion-input id="Name1" type="name" class="Tongue" placeholder = "Mother Tongue" [(ngModel)]="motherTongueLanguage" [ngModelOptions]="{standalone: true}" > </ion-input>
+  </ion-row>
+
+      <ion-row>
+        <ion-label class="Country">Country</ion-label>
+      </ion-row>
+     <ion-row>
+      <ion-input id="Name1" type="name" class="country" placeholder = "Country"  [(ngModel)]="Country" [ngModelOptions]="{standalone: true}"> </ion-input>
+     </ion-row>
+
+      <ion-row>
+        <ion-label class="State">State</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-input id="Name1" type="name" class="state" placeholder = "State" [(ngModel)]="State" [ngModelOptions]="{standalone: true}"> </ion-input>
+      </ion-row>
+     
+
+     <ion-row>
+      <ion-label class="City">City</ion-label>
+     </ion-row>
+     <ion-row>
+      <ion-input id="Name1" type="name" class="city" placeholder = "City" [(ngModel)]="City" [ngModelOptions]="{standalone: true}"> </ion-input>
+     </ion-row>
+
+     <ion-row>
+      <ion-label class="Status">Residential Status</ion-label>
+     </ion-row>
+     <ion-row>
+      <ion-input id="Name1" type="name" class="status" placeholder = "status"[(ngModel)]="residential" [ngModelOptions]="{standalone: true}"> </ion-input>
+     </ion-row>
+
+      <ion-row>
+        <ion-button (click)="onClick()" shape="round" class="Submit">
+          SAVE
+        </ion-button>
+      </ion-row>
+     </ion-grid>
+</form>
+  </div>
+       
+    
+</ion-content>

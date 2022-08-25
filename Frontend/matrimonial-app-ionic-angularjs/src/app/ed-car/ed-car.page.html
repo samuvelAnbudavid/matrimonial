@@ -1,0 +1,219 @@
+<ion-content [fullscreen]="true">
+  <div class="div1">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <ion-icon name="arrow-back-outline" size="large" class="icon"  [routerLink]="['/registration']"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-title class="title1">Education and Career</ion-title>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="9" style="margin-top: 20px;">
+          <ion-progress-bar color="success" value="0.50" buffer="0.25"></ion-progress-bar>
+        </ion-col>
+        <ion-col style="margin-top: 10px;">
+          <ion-label class="lab1">
+            Step 2/4
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="div2">
+    <div>
+      <form #educationCareerForm="ngForm" (ngSubmit)="submit()">
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-list>
+
+                <ion-list-header lines="inset">
+                  <ion-label>
+                    <h3>Education<span>&#42;</span></h3>
+                  </ion-label>
+                </ion-list-header>
+
+                <ion-item lines="none">
+                  <ion-col size="2">
+                    <ion-icon size="large" name="school-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="floating">Highest Degree&nbsp;<span>&#42;</span></ion-label>
+                      <ion-input type="text" placeholder="Ex: B.Tech" autofocus="true" required="true" name="name"
+                        inputmode="text" enterkeyhint="enter" autocomplete="name" color="success" [(ngModel)] = "Degree" #degreeControl = "ngModel">
+                      </ion-input>
+
+                      <div *ngIf="(degreeControl.invalid && degreeControl.touched)" style="padding-left: 30px;">
+                        <ion-text color="damage" *ngIf="degreeControl.errors.required">
+                          <p class="ion-no-margin"><sub>Degree is required.</sub></p>
+                        </ion-text>
+                      </div>
+
+                    </ion-item>
+                  </ion-col>
+                </ion-item>
+
+                <ion-item lines="none" *ngFor="let education of educationArray; let i = index">
+                  <ion-col size="2">
+                    <ion-icon size="large" name="school-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="9">
+                    <ion-item>
+                      <ion-label position="floating">{{ education.label }} {{ i + 1 }}&nbsp;<span>&#42;</span>
+                      </ion-label>
+                      <ion-input type="text" placeholder="Ex: B.Tech" autofocus="true" required="true"
+                        name="education{{i}}" inputmode="text" enterkeyhint="enter" autocomplete="name" color="success"
+                        [(ngModel)]="educationArray[i].value" #educationControl = "ngModel">
+                      </ion-input>
+                      
+                      <!-- <div *ngIf="(educationControl.invalid && educationControl.touched)" style="padding-left: 30px;">
+                        <ion-text color="damage" *ngIf="educationControl.errors.required">
+                          <p class="ion-no-margin"><sub>Education is required.</sub></p>
+                        </ion-text>
+                      </div>
+                     -->
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-icon name="close-circle-outline" (click)="removeEducation(i)"></ion-icon>
+                  </ion-col>
+                </ion-item>
+
+                <ion-item lines="none" button (click)="addEducation()">
+                  <ion-col size="2">
+                    <ion-icon size="large" name="add-circle-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-label>ADD ANOTHER EDUCATION</ion-label>
+                  </ion-col>
+                </ion-item>
+              </ion-list>
+
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-list-header lines="inset">
+                  <ion-label>
+                    <h3>Career<span>&#42;</span></h3>
+                  </ion-label>
+                </ion-list-header>
+                <ion-item lines="none">
+                  <ion-col size="2">
+                    <ion-icon name="bag-outline" size="large"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="floating">Employed In&nbsp;<span>&#42;</span></ion-label>
+                      <ion-input type="text" placeholder="Ex:" autofocus="true" required="true" name="employedIn"
+                        inputmode="text" enterkeyhint="enter" autocomplete="name" color="success" [(ngModel)] = "employedIn" #employedControl = "ngModel">
+                      </ion-input>
+                      <div *ngIf="(employedControl.invalid && employedControl.touched)" style="padding-left: 30px;">
+                        <ion-text color="damage" *ngIf="employedControl.errors.required">
+                          <p class="ion-no-margin"><sub>This field is required if none type null.</sub></p>
+                        </ion-text>
+                      </div>
+                    </ion-item>
+                  </ion-col>
+                </ion-item>
+
+                <ion-item lines="none">
+                  <ion-col size="2">
+                    <ion-icon name="business-outline" size="large"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="floating">Occupation&nbsp;<span>&#42;</span></ion-label>
+                      <ion-input type="text" placeholder="Ex:" autofocus="true" required="true" name="employedIn1"
+                        inputmode="text" enterkeyhint="enter" autocomplete="name" color="success" [(ngModel)] = "employedIn1" #occupationControl = "ngModel">
+                      </ion-input>
+                      <div *ngIf="(occupationControl.invalid && occupationControl.touched)" style="padding-left: 30px;">
+                        <ion-text color="damage" *ngIf="occupationControl.errors.required">
+                          <p class="ion-no-margin"><sub>Occupation is required if none type null.</sub></p>
+                        </ion-text>
+                      </div>
+                    </ion-item>
+                  </ion-col>
+                </ion-item>
+
+                <ion-item lines="none">
+                  <ion-col size="2">
+                    <ion-icon name="wallet-outline" size="large"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="floating">Income&nbsp;<span>&#42;</span></ion-label>
+                      <ion-input type="text" placeholder="Ex:" autofocus="true" required="true" name="employedIn2"
+                        inputmode="text" enterkeyhint="enter" autocomplete="name" color="success" [(ngModel)] = "employedIn2" #incomeControl = "ngModel">
+                      </ion-input>
+                      <div *ngIf="(incomeControl.invalid && incomeControl.touched)" style="padding-left: 30px;">
+                        <ion-text color="damage" *ngIf="incomeControl.errors.required">
+                          <p class="ion-no-margin"><sub>Field is required.</sub></p>
+                        </ion-text>
+                      </div>
+                    </ion-item>
+                  </ion-col>
+                </ion-item>
+
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button expand="full" shape="round" type="submit" class="btn1" [disabled] = "degreeControl.invalid && degreeControl.touched ||  employedControl.invalid && employedControl.touched || occupationControl.invalid && occupationControl.touched || incomeControl.invalid && incomeControl.touched">Next &nbsp;
+                <ion-icon name="chevron-forward-circle-sharp"  class="icon"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </form>
+    </div>
+
+  </div>
+</ion-content>
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-title>Education and Career</ion-title>
+  <ion-label>2/3</ion-label>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeLg="10" sizeMd="10" sizeXs="12">  
+  
+    <div class="container">
+      <form action="" method="post">
+        <ion-label class="name">Education</ion-label> <br>
+        <ion-icon class="cap" name="school-outline"></ion-icon>
+        <ion-input id="Name1" type="name" class="name1" placeholder = "Highest Degree *"> </ion-input>
+
+        <ion-label class="career">Career</ion-label> <br>
+        <ion-icon name="bag-outline" class="bag"></ion-icon>
+        <ion-label class="career1">Employed In *</ion-label> <br>
+            <ion-input id="Name2" type="name" class="name2" > </ion-input>
+
+            <ion-icon name="desktop-outline" class = desktop></ion-icon>
+            <ion-label class="occup">Occupation *</ion-label> <br>
+            <ion-input id="Name3" type="name" class="name3" > </ion-input>
+
+            <ion-icon name="wallet-outline" class="money"></ion-icon>
+            <ion-label class="income">Income *</ion-label> <br>
+            <ion-input id="Name4" type="name" class="name4" > </ion-input>
+
+            <ion-button (click)="onClick()" class="Nextbutton" [routerLink] = "['/pref-part']">
+              Next
+            </ion-button>
+    
+</form>
+    </div>
+  </ion-col>
+</ion-row>
+</ion-grid>
+
+</ion-content> -->
